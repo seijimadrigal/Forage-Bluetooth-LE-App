@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2"
+    tools:context=".scanner_Fragment">
+
+
+    <Switch
+        android:id="@+id/discoverability"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:paddingRight="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:checked="false"
+        android:fontFamily="@font/advent_pro_light"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:text="@string/discoverability"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:theme="@style/switchColor" />
+
+    <ImageView
+        android:id="@+id/fbProfile"
+        android:layout_centerInParent="true"
+        android:layout_width="118dp"
+        android:layout_height="117dp"
+
+        />
+
+    <ImageView
+        android:id="@+id/foundProfile2"
+        android:layout_width="85dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="100dp"
+
+        android:layout_toStartOf ="@id/foundProfile"
+        android:layout_below="@id/discoverability"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/foundProfile"
+        android:layout_width="85dp"
+        android:layout_height="95dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/fbProfile"
+        android:layout_marginBottom="40dp"
+        />
+
+    <ImageView
+        android:id="@+id/foundProfile3"
+        android:layout_width="82dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@id/foundProfile"
+        android:layout_below="@id/discoverability"
+        />
+    <ImageView
+        android:id="@+id/foundProfile4"
+        android:layout_width="82dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:layout_toStartOf="@id/fbProfile"
+        android:layout_below="@id/foundProfile2"
+        />
+    <ImageView
+        android:id="@+id/foundProfile5"
+        android:layout_width="82dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:layout_below="@id/foundProfile3"
+        android:layout_toEndOf="@id/fbProfile"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+
+        />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/scannerProg"
+        style="@style/SpinKitView.Large.Wave"
+        android:layout_width="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        app:SpinKit_Color="@android:color/white" />
+    <Button
+        android:layout_width="130dp"
+        android:id="@+id/scannerBtn"
+        android:background="@drawable/rounded2"
+        android:layout_height="50dp"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="40dp"
+
+        android:text="@string/start_scanning" />
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "749581284072",
+    "firebase_url": "https://forage-c3f37.firebaseio.com",
+    "project_id": "forage-c3f37",
+    "storage_bucket": "forage-c3f37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749581284072:android:33329ef5bafad277",
+        "android_client_info": {
+          "package_name": "com.Forage.Forage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749581284072-sp604endknt83636jmvt7gl0una2i1vf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Forage.Forage",
+            "certificate_hash": "94cca71dc8bda4e6d2860de2e56c72897bd708de"
+          }
+        },
+        {
+          "client_id": "749581284072-kg8k6gajqomutpnh74uuh1s1docu85mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd73ztogQKTU4eJDymrHXjFM9C_uDIMXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749581284072-kg8k6gajqomutpnh74uuh1s1docu85mu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "749581284072-hjij58t6j1e7vuc6hi0uiiar2l3go3f3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "Forage.Forage"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7186375146103063~4181879592"
+    }
+  ],
+  "configuration_version": "1"
+}
