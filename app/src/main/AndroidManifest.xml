@@ -11,20 +11,21 @@
     <application
         android:name=".forage"
         android:allowBackup="true"
-        android:versionCode="3"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/applogo"
         android:label="@string/app_name"
-        android:hardwareAccelerated="false"
         android:largeHeap="true"
         android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme"
+        android:versionCode="7">
+        <activity android:name=".Settings"/>
+        <activity android:name=".EnterHandles" />
         <activity
             android:name=".NewProfileView"
             android:label="@string/Profile"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".loginAuth">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,20 +44,17 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"
             />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7186375146103063~4181879592"/>
-
+            android:value="ca-app-pub-7186375146103063~4181879592" />
 
         <activity
             android:name="com.facebook.FacebookActivity"

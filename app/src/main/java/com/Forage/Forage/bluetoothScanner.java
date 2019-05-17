@@ -57,7 +57,8 @@ public class bluetoothScanner extends Service {
         if(intent.getExtras() != null) {
             Bundle extras = intent.getExtras();
         }
-
+        SharedPreferences load = PreferenceManager.getDefaultSharedPreferences(this);
+        UserUUID = load.getString("UserUUID",null);
         Intent persistenNotifIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,0,persistenNotifIntent,0);
 
@@ -89,30 +90,7 @@ public class bluetoothScanner extends Service {
         startForeground(45353, notification);
 
 
-        SharedPreferences load = PreferenceManager.getDefaultSharedPreferences(this);
-        UserUUID = load.getString("UserUUID",null);
 
-        Log.d(TAG, "SERVICE STARTED");
-
-
-
-        HashMap<String, Object> data = new HashMap<>();
-
-
-
-        Profile fbProfile = Profile.getCurrentProfile();
-        String FBURI = fbProfile.getLinkUri().toString();
-
-        String FBNAME = fbProfile.getName();
-        String FBID = fbProfile.getId();
-        String profilePhotoURI = fbProfile.getProfilePictureUri(400,400).toString();
-
-        //data.put("FB URI", FBURI);
-        data.put(FB_NAME, FBNAME);
-        data.put(FB_ID, FBID);
-        data.put(FB_PHOTO, profilePhotoURI);
-        Log.d(TAG, "onStartCommand:" + FBID);
-        fb.collection("users").document(UserUUID).set(data, SetOptions.merge());
 
 
 

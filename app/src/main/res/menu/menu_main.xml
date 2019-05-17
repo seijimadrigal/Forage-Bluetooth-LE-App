@@ -1,14 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.Forage.Forage.MainActivity">
-
-
-    <item
-        android:id="@+id/action_profile"
-        android:icon="@drawable/ic_account_profile"
-        android:title="@string/action_profile"
-        />
 
     <item
         android:id="@+id/action_scanner"
@@ -16,10 +8,19 @@
         android:title="@string/action_scanner"
 
         />
+    <item android:id="@+id/search_profile"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/search_people">
+    </item>
     <item
-        android:id="@+id/action_settings"
-        android:icon="@drawable/ic_settings_black_24dp"
-        android:title="@string/action_settings"/>
+        android:id="@+id/action_profile"
+        android:icon="@drawable/ic_account_profile"
+        android:title="@string/action_profile"
+        />
+
+
+
+
 
 
 </menu>

@@ -1,6 +1,8 @@
 package com.Forage.Forage;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,8 +47,6 @@ public class loginAuth extends AppCompatActivity {
             startMainActivity();
         }
         setContentView(R.layout.activity_login_auth);
-
-        //FacebookSdk.sdkInitialize(getApplication());
         AppEventsLogger.activateApp(getApplication());
 
         LoginButton loginButton = findViewById(R.id.login_button);
@@ -65,7 +65,15 @@ public class loginAuth extends AppCompatActivity {
                 appToken = AccessToken.getCurrentAccessToken();
 
                 if (appToken != null && !appToken.isExpired()) {
-                    startMainActivity();
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    final String handle = sharedPreferences.getString("handle",null);
+                    if(handle == null){
+                        startEnterHandleActivity();
+                    }
+                    else {
+                        startMainActivity();
+                    }
+
 
                 }
                     GraphRequest request = GraphRequest.newMeRequest(appToken, new GraphRequest.GraphJSONObjectCallback() {
@@ -108,4 +116,10 @@ public class loginAuth extends AppCompatActivity {
         startActivity(startMainActivity);
         finish();
     }
+    public void startEnterHandleActivity() {
+        Intent startEnterHandleActivity = new Intent(loginAuth.this, EnterHandles.class);
+        startActivity(startEnterHandleActivity);
+        finish();
+    }
+
 }

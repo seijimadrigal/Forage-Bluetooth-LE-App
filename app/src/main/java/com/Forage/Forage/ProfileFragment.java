@@ -1,6 +1,7 @@
 package com.Forage.Forage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,10 +45,10 @@ public class ProfileFragment extends Fragment {
 
     private View profileView;
 
-    private ImageView myProfileView, doneTick;
+    private ImageView myProfileView, doneTick, settingBtn;
     private EditText instagramUsername, linkEdit, twitterEdit, bioEdit, facebookEdit, snapchatEdit;
-    private AdView adView;
-    private TextView myNameText, charCount,viewCount, totalviewCount;
+
+    private TextView myNameText, charCount,viewCount, totalviewCount, myHandleText;
 
 
 
@@ -82,6 +83,7 @@ public class ProfileFragment extends Fragment {
         Log.d(TAG, "onCreateView: ");
         profileView = inflater.inflate(R.layout.profile_fragment, container,false);
         myProfileView = profileView.findViewById(R.id.myProfileView);
+        settingBtn = profileView.findViewById(R.id.settings_btn);
         charCount = profileView.findViewById(R.id.charLengthView);
         instagramUsername = profileView.findViewById(R.id.instagramUserName);
         twitterEdit = profileView.findViewById(R.id.twitterEdit);
@@ -91,24 +93,26 @@ public class ProfileFragment extends Fragment {
         bioEdit = profileView.findViewById(R.id.bioEdit);
         doneTick = profileView.findViewById(R.id.doneTick);
         myNameText = profileView.findViewById(R.id.myName);
+        myHandleText = profileView.findViewById(R.id.myHandle);
         viewCount = profileView.findViewById(R.id.viewsCount);
         totalviewCount = profileView.findViewById(R.id.totalviewcount);
         progressCircle = profileView.findViewById(R.id.progressCircle);
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 
 
-        adView = profileView.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
 
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         final String UUID = sharedPreferences.getString("UserUUID", null);
+        final String handle = sharedPreferences.getString("handle",null);
         fireStorePutHash = new HashMap<>();
 
         userDetailsRef = collection.document(UUID);
         checkInfo();
 
+        if(handle != null){
+            myHandleText.setText(handle);
+        }
         progressCircle.setVisibility(View.VISIBLE);
         handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -145,6 +149,13 @@ public class ProfileFragment extends Fragment {
                 sendAccountInfo(6);
 
 
+            }
+        });
+        settingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startSettings = new Intent(getActivity(), Settings.class);
+                startActivity(startSettings);
             }
         });
         return profileView;

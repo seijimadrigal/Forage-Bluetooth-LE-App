@@ -317,9 +317,7 @@ public class scanner_Fragment extends Fragment {
             it.remove();
 
         }
-        if(accounts <= 0){
-            Toast.makeText(getActivity(),"No Devices Found",Toast.LENGTH_LONG).show();
-        }
+
 
 
     }

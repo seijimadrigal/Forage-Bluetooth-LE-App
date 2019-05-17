@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient2"
+    tools:context=".Settings"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarSettings"
+        app:title="@string/action_settings"
+        app:titleTextColor="@color/lightgrey"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <ImageView
+        android:id="@+id/doneSettings"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_check" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@android:color/white"
+        android:layout_marginTop="20dp"
+
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@id/toolbarSettings"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
+            android:text="@string/scanner_frequency"
+            />
+
+        <EditText
+            android:id="@+id/scannerTime"
+            android:layout_width="70dp"
+            android:textDirection="rtl"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/ms"
+            android:ems="10"
+            android:maxLength="5"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/ms"
+            android:text="@string/milliseconds"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            />
+
+    </RelativeLayout>
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:id="@+id/deleteaccountBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textSize="15dp"
+        android:text="@string/delete_account_from_forage"
+        android:textColor="@android:color/holo_red_dark"
+        android:background="@drawable/rounded2"
+        android:layout_height="50dp">
+    </Button>
+
+    <ProgressBar
+        android:id="@+id/progressCircleSettings"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:indeterminate="true"
+        android:indeterminateTint= "@color/green" />
+
+
+
+
+
+</RelativeLayout>
