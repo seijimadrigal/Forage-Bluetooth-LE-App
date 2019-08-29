@@ -7,45 +7,30 @@
     android:layout_gravity="center"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:background="@color/lightgrey">
-
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:id="@+id/profTool"
-        app:title="@string/Profile"
-        app:titleTextColor="@android:color/white"
-        android:layout_height="45dp">
-    </android.support.v7.widget.Toolbar>
+    android:background="@color/darkbck">
 
 
-    <ImageView
-        android:id="@+id/doneTick"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
-        android:layout_toStartOf="@id/settings_btn"
-        android:src="@drawable/ic_check" />
-
-    <ImageView
-        android:id="@+id/settings_btn"
-        android:layout_width="34dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="15dp"
-        android:layout_alignParentEnd="true"
-
-        android:src="@drawable/ic_settings_black_24dp" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_below="@id/profTool"
         android:layout_height="match_parent">
 
     <RelativeLayout
         android:clipToPadding="false"
         android:paddingBottom="10dp"
-        android:background="@color/white"
+        android:background="@color/darkbck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/settings_btn"
+            android:layout_width="34dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="15dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_settings_black_24dp" />
         <ImageView
             android:id="@+id/myProfileView"
             android:layout_width="150dp"
@@ -60,7 +45,7 @@
             android:layout_height="40dp"
             android:textAlignment="center"
             android:layout_marginTop="170dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             />
         <TextView
@@ -75,11 +60,11 @@
 
 
         <RelativeLayout
-            android:layout_width="135dp"
+            android:layout_width="145dp"
             android:layout_height="80dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:elevation="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="2dp"
+
             android:background="@drawable/rounded2"
             android:layout_marginTop="10dp"
             android:layout_below="@id/myHandle"
@@ -87,6 +72,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:id="@+id/viewTitle"
                 android:layout_centerHorizontal="true"
                 android:text="@string/current_views"
@@ -101,7 +87,7 @@
                 android:layout_below="@id/viewTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="20dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="25sp"
                 android:textAlignment="center"
                 android:layout_height="35dp" />
@@ -110,18 +96,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:elevation="4dp"
             android:translationZ="4dp"
             android:background="@drawable/rounded2"
             android:layout_toEndOf="@id/viewcontainer"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="10dp"
+
             android:layout_below="@id/myHandle"
             android:id="@+id/totalviewcontainer">
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:id="@+id/totalviewText"
                 android:layout_centerHorizontal="true"
                 android:text="@string/TotalViews"
@@ -132,62 +119,64 @@
                 android:layout_height="30dp" />
             <TextView
                 android:layout_width="100dp"
+                android:textColor="@color/white"
                 android:id="@+id/totalviewcount"
                 android:textAlignment="center"
                 android:layout_below="@id/totalviewText"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="20dp"
-                android:textColor="@android:color/black"
                 android:textSize="25sp"
                 android:layout_height="35dp" />
 
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:id="@+id/bioContainer"
-            android:elevation="5dp"
             android:background="@drawable/rounded2"
             android:paddingBottom="15dp"
             android:layout_below="@+id/viewcontainer"
-            android:layout_height="200dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="match_parent"
                 android:id="@+id/BioTitle"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/white"
+                android:textColor="@color/white"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="250dp"
                 android:textSize="20sp"
-                android:textColor="@android:color/black"
                 android:text="@string/Bio"
                 />
 
-            <EditText
+            <Button
+                android:id="@+id/bioBtn"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:textColor="@color/lightgrey"
+                android:background="@android:color/transparent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:text="@string/edit"
+                />
+
+            <TextView
                     android:layout_width="match_parent"
-                    android:background="@color/lightgrey"
-                    android:layout_height="400dp"
+                    android:background="@color/darksec"
+                    android:textColor="@color/white"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
                     android:layout_marginTop="70dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
                     android:id="@+id/bioEdit"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
 
                     />
 
-            <TextView
-                android:layout_width="70dp"
-                android:id="@+id/charLengthView"
-                android:layout_height="30dp"
-                android:textColor="@android:color/black"
-                android:layout_marginStart="300dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="30dp"
-                android:textSize="15sp"
-                />
+
 
 
         </RelativeLayout>
@@ -195,8 +184,7 @@
         <RelativeLayout
             android:id="@+id/facebookcontainer"
             android:background="@drawable/rounded_facebook"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_below="@id/bioContainer"
             android:layout_height="150dp">
@@ -211,15 +199,25 @@
                 android:textColor="@android:color/black"
                 android:text="@string/facebookUsernameTitle"
                 />
-
-            <EditText
+            <Button
+                android:id="@+id/fbBtn"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:textColor="@color/lightgrey"
+                android:background="@android:color/transparent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:text="@string/edit"
+                />
+            <TextView
                 android:id="@+id/facebookEdit"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:padding="10dp"
+                android:textColor="@android:color/black"
                 android:background="@color/white"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="70dp" />
 
         </RelativeLayout>
@@ -227,8 +225,7 @@
         <RelativeLayout
             android:id="@+id/instagramContainer"
             android:background="@drawable/rounded_insta"
-            android:layout_margin="10dp"
-            android:elevation="4dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_below="@id/facebookcontainer"
             android:layout_height="150dp">
@@ -245,17 +242,29 @@
                 android:text="@string/instagramTitle"
                 />
 
-            <EditText
+            <Button
+                android:id="@+id/instaBtn"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:textColor="@color/lightgrey"
+                android:background="@android:color/transparent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:text="@string/edit"
+                />
+            <TextView
                 android:id="@+id/instagramUserName"
                 android:layout_width="match_parent"
+                android:textColor="@android:color/black"
+                android:textSize="22dp"
                 android:layout_height="50dp"
                 android:background="@color/white"
-                android:layout_marginStart="70dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="70dp" />
             <TextView
                 android:layout_width="60dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:layout_marginTop="70dp"
@@ -265,11 +274,11 @@
 
         </RelativeLayout>
         <RelativeLayout
+
             android:id="@+id/snapchatContainer"
             android:background="@drawable/rounded_snapchat"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
-            android:elevation="4dp"
             android:layout_below="@id/instagramContainer"
             android:layout_height="150dp">
 
@@ -283,19 +292,31 @@
                 android:textColor="@android:color/black"
                 android:text="@string/Snapchat"
                 />
+            <Button
+                android:id="@+id/snapchatBtn"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:textColor="@color/lightgrey"
+                android:background="@android:color/transparent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:text="@string/edit"
+                />
 
-            <EditText
+            <TextView
                 android:id="@+id/snapchatUsername"
+                android:textColor="@android:color/black"
                 android:hint=""
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/white"
-                android:layout_marginStart="70dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="70dp" />
+                android:textSize="22sp"
+                android:layout_marginStart="75dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="75dp" />
             <TextView
                 android:layout_width="60dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:layout_marginTop="70dp"
@@ -305,11 +326,11 @@
 
         </RelativeLayout>
         <RelativeLayout
+
             android:background="@drawable/rounded_twitter"
             android:id="@+id/twitterContainer"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
-            android:elevation="4dp"
             android:layout_below="@id/snapchatContainer"
             android:layout_height="150dp">
 
@@ -317,25 +338,36 @@
                 android:layout_width="match_parent"
                 android:id="@+id/twitterTitle"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
                 android:textSize="20sp"
                 android:textColor="@android:color/black"
                 android:text="@string/Twitter"
                 />
-            <EditText
+            <Button
+                android:id="@+id/twitterBtn"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:textColor="@color/lightgrey"
+                android:background="@android:color/transparent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:text="@string/edit"
+                />
+            <TextView
                 android:id="@+id/twitterEdit"
+                android:textColor="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/white"
-                android:layout_marginTop="70dp"
-                android:layout_marginStart="70dp"
-                android:layout_marginEnd="10dp"
-
+                android:layout_marginTop="50dp"
+                android:textSize="22sp"
+                android:layout_marginStart="75dp"
+                android:layout_marginEnd="15dp"
                 />
             <TextView
                 android:layout_width="60dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:layout_marginTop="70dp"
@@ -347,9 +379,8 @@
         <RelativeLayout
             android:background="@color/green"
             android:id="@+id/linkContainer"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
-            android:elevation="4dp"
             android:layout_below="@id/twitterContainer"
             android:layout_height="150dp">
 
@@ -363,15 +394,26 @@
                 android:textColor="@android:color/black"
                 android:text="@string/Link"
                 />
-            <EditText
+            <Button
+                android:id="@+id/linkBtn"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:textColor="@color/lightgrey"
+                android:background="@android:color/transparent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:text="@string/edit"
+                />
+            <TextView
                 android:id="@+id/linkEditText"
                 android:layout_width="match_parent"
+                android:textColor="@android:color/black"
                 android:layout_height="50dp"
                 android:padding="10dp"
                 android:background="@color/white"
                 android:layout_marginTop="70dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
 
                 />
         </RelativeLayout>

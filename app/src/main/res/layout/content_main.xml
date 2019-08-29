@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu_main"
-        android:background="@drawable/gradient"
+        android:background="@color/colorPrimary"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         />

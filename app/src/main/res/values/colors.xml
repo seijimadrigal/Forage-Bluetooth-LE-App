@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3a4896</color>
-    <color name="colorPrimaryDark">#0a244f</color>
+    <color name="colorPrimary">#2F3839</color>
+    <color name="colorPrimaryDark">#2F3839</color>
     <color name="colorAccent">#FF7043</color>
     <color name="white">#fff</color>
     <color name="lightgrey">#f4f7fc</color>
@@ -10,7 +10,9 @@
     <color name="grey">#e3e3e5</color>
     <color name="yellow">#FFFC00</color>
     <color name="logocolour">#45A2C4</color>
-
+    <color name="darkbck">#1E1E1E</color>
+    <color name="darkprm">#2F3839</color>
+    <color name="darksec">#566769</color>
 
     <color name="insgtabot">#F17B33</color>
     <color name="insgtatop">#9837BC</color>

@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -46,11 +47,9 @@ public class ProfileFragment extends Fragment {
     private View profileView;
 
     private ImageView myProfileView, doneTick, settingBtn;
-    private EditText instagramUsername, linkEdit, twitterEdit, bioEdit, facebookEdit, snapchatEdit;
-
-    private TextView myNameText, charCount,viewCount, totalviewCount, myHandleText;
-
-
+    private TextView instagramUsername, linkEdit, twitterEdit, bioEdit, facebookEdit, snapchatEdit;
+    private Button instagramBtn, linkBtn, twitterBtn, bioBtn, facebookBtn, snapchatBtn;
+    private TextView myNameText,viewCount, totalviewCount, myHandleText;
 
     private HashMap<String,String>fireStorePutHash;
 
@@ -59,22 +58,7 @@ public class ProfileFragment extends Fragment {
     private DocumentReference userDetailsRef;
     private Handler handler;
     private InputMethodManager inputMethodManager;
-    private final TextWatcher textWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            charCount.setText(String.valueOf(bioEdit.getText().length()));
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-        }
-    };
 
 
     @Nullable
@@ -84,16 +68,67 @@ public class ProfileFragment extends Fragment {
         profileView = inflater.inflate(R.layout.profile_fragment, container,false);
         myProfileView = profileView.findViewById(R.id.myProfileView);
         settingBtn = profileView.findViewById(R.id.settings_btn);
-        charCount = profileView.findViewById(R.id.charLengthView);
+
         instagramUsername = profileView.findViewById(R.id.instagramUserName);
         twitterEdit = profileView.findViewById(R.id.twitterEdit);
         linkEdit = profileView.findViewById(R.id.linkEditText);
         facebookEdit = profileView.findViewById(R.id.facebookEdit);
         snapchatEdit =  profileView.findViewById(R.id.snapchatUsername);
         bioEdit = profileView.findViewById(R.id.bioEdit);
-        doneTick = profileView.findViewById(R.id.doneTick);
         myNameText = profileView.findViewById(R.id.myName);
         myHandleText = profileView.findViewById(R.id.myHandle);
+
+        bioBtn = profileView.findViewById(R.id.bioBtn);
+        facebookBtn = profileView.findViewById(R.id.fbBtn);
+        snapchatBtn = profileView.findViewById(R.id.snapchatBtn);
+        twitterBtn = profileView.findViewById(R.id.twitterBtn);
+        instagramBtn = profileView.findViewById(R.id.instaBtn);
+        linkBtn = profileView.findViewById(R.id.linkBtn);
+
+        final Intent startEditActivity = new Intent(getActivity(),EditProfileActivity.class);
+
+        bioBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startEditActivity.putExtra("edit", BIO_NO);
+                startActivity(startEditActivity);
+            }
+        });
+        facebookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startEditActivity.putExtra("edit",FB_NO);
+                startActivity(startEditActivity);
+            }
+        });
+        snapchatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startEditActivity.putExtra("edit",SNAPCHAT_NO);
+                startActivity(startEditActivity);
+            }
+        });
+        twitterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startEditActivity.putExtra("edit",TWITTER_NO);
+                startActivity(startEditActivity);
+            }
+        });
+        instagramBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startEditActivity.putExtra("edit",INSTA_NO);
+                startActivity(startEditActivity);
+            }
+        });
+        linkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startEditActivity.putExtra("edit",LINK_NO);
+                startActivity(startEditActivity);
+            }
+        });
         viewCount = profileView.findViewById(R.id.viewsCount);
         totalviewCount = profileView.findViewById(R.id.totalviewcount);
         progressCircle = profileView.findViewById(R.id.progressCircle);
@@ -126,31 +161,9 @@ public class ProfileFragment extends Fragment {
         final String ProfileName = Profile.getCurrentProfile().getName();
         myNameText.setText(ProfileName);
 
-
-        instagramUsername.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        twitterEdit.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        facebookEdit.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        snapchatEdit.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        linkEdit.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
-        bioEdit.addTextChangedListener(textWatcher);
         Glide.with(profileView).load(Profile.getCurrentProfile().getProfilePictureUri(600,600)).circleCrop().into(myProfileView);
 
-        doneTick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: Tick CLicked");
-                progressCircle.setVisibility(View.VISIBLE);
 
-                sendAccountInfo(1);
-                sendAccountInfo(2);
-                sendAccountInfo(3);
-                sendAccountInfo(4);
-                sendAccountInfo(5);
-                sendAccountInfo(6);
-
-
-            }
-        });
         settingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,83 +185,27 @@ public class ProfileFragment extends Fragment {
         super.onDetach();
 
     }
-    private void sendAccountInfo(int accountNo){
-        switch (accountNo){
-            case 1:
-                if(instagramUsername.getText() != null){
-                    String instaUser = instagramUsername.getText().toString();
-                    fireStorePutHash.put(INSTA_ID, instaUser);
-                    userDetailsRef.set(fireStorePutHash, SetOptions.merge());
-                    finishWriteText(instagramUsername);
 
-                }
-                break;
-
-            case 2:
-                if(twitterEdit.getText() != null){
-                    String twitterUsername = twitterEdit.getText().toString();
-                    fireStorePutHash.put(TWITTER_ID, twitterUsername);
-                    userDetailsRef.set(fireStorePutHash, SetOptions.merge());
-                    finishWriteText(twitterEdit);
-
-                }
-                break;
-
-            case 3:
-                if(bioEdit.getText() != null){
-                    String bioString  = bioEdit.getText().toString();
-                    fireStorePutHash.put(BIO_ID, bioString);
-                    userDetailsRef.set(fireStorePutHash, SetOptions.merge());
-                    finishWriteText(bioEdit);
-                }
-                break;
-            case 4:
-                if(facebookEdit.getText() != null){
-                    String fbString  = facebookEdit.getText().toString();
-                    fireStorePutHash.put(FB_URI, fbString);
-                    userDetailsRef.set(fireStorePutHash, SetOptions.merge());
-                    finishWriteText(facebookEdit);
-                }
-                break;
-            case 5:
-                if(linkEdit.getText() != null){
-                    String link  = linkEdit.getText().toString();
-                    fireStorePutHash.put(SEND_LINK, link);
-                    userDetailsRef.set(fireStorePutHash, SetOptions.merge());
-                    finishWriteText(linkEdit);
-                }
-                break;
-            case 6:
-                if(snapchatEdit.getText() != null){
-                    String snapchat  = snapchatEdit.getText().toString();
-                    fireStorePutHash.put(SNAP_ID, snapchat);
-                    userDetailsRef.set(fireStorePutHash, SetOptions.merge());
-                    finishWriteText(snapchatEdit);
-
-                }
-                break;
-        }
-
-
-
-    }
 
     private void checkInfo(){
         userDetailsRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot profileInfo = task.getResult();
-                if(task.isSuccessful()){
+                if(task.isSuccessful() && profileInfo != null){
                     if(profileInfo.contains(INSTA_ID)){
                         Log.d(TAG, "INSTA ID FOUND");
                         if(profileInfo.get(INSTA_ID) != null) {
+
                             String instaID = profileInfo.get(INSTA_ID).toString();
+                            Log.d(TAG, "onComplete: " + instaID );
                             instagramUsername.setText(instaID);
                         }
                     }
                     if(profileInfo.contains(TWITTER_ID)){
                         if(profileInfo.get(TWITTER_ID) != null) {
                             String twitterID = profileInfo.get(TWITTER_ID).toString();
+                            Log.d(TAG, "onComplete: " + twitterID );
                             twitterEdit.setText(twitterID);
 
                         }
@@ -256,14 +213,15 @@ public class ProfileFragment extends Fragment {
                     if(profileInfo.contains(BIO_ID)){
                         if(profileInfo.get(BIO_ID) != null) {
                             String bioId = profileInfo.get(BIO_ID).toString();
+                            Log.d(TAG, "onComplete: " + bioId );
                             bioEdit.setText(bioId);
-                            charCount.setText(String.valueOf(bioId.length()));
 
                         }
                     }
-                    if(profileInfo.contains(FB_URI)){
-                        if(profileInfo.get(FB_URI) != null) {
-                            String facebookStr = profileInfo.get(FB_URI).toString();
+                    if(profileInfo.contains(FB_ID)){
+                        if(profileInfo.get(FB_ID) != null) {
+                            String facebookStr = profileInfo.get(FB_ID).toString();
+                            Log.d(TAG, "onComplete: " + facebookStr );
                             facebookEdit.setText(facebookStr);
 
                         }
@@ -271,6 +229,7 @@ public class ProfileFragment extends Fragment {
                     if(profileInfo.contains(SEND_LINK)){
                         if(profileInfo.get(SEND_LINK) != null) {
                             String linkStr = profileInfo.get(SEND_LINK).toString();
+                            Log.d(TAG, "onComplete: " + linkStr );
                             linkEdit.setText(linkStr);
 
                         }
@@ -292,6 +251,7 @@ public class ProfileFragment extends Fragment {
                     if(profileInfo.contains(SNAP_ID)){
                         if(profileInfo.get(SNAP_ID) != null) {
                             String snapchat = profileInfo.get(SNAP_ID).toString();
+                            Log.d(TAG, "onComplete: " + snapchat );
                             snapchatEdit.setText(snapchat);
 
                         }
@@ -303,15 +263,5 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    public void finishWriteText(EditText editText){
-        inputMethodManager.hideSoftInputFromWindow(editText.getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                checkInfo();
-            }
-        },2000);
-
-    }
 
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".EditProfileActivity"
+    android:background="@color/darkbck"
+    tools:showIn="@layout/activity_edit_profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rounded2">
+        <EditText
+            android:id="@+id/edit_profile_edit"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="10dp"
+            android:textColorHighlight="@color/white"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:background="@color/darksec"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

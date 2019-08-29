@@ -10,23 +10,23 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient2"
-        >
+        android:background="@drawable/gradient2">
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/profilePhoto"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/profile_picture" />
+            <ImageView
+                android:id="@+id/profilePhoto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/profile_picture" />
 
-    <TextView
+            <TextView
         android:id="@+id/profileName"
         android:layout_width="259dp"
         android:layout_height="54dp"
@@ -72,7 +72,6 @@
                     android:layout_alignEnd="@id/instaButton"
                     android:contentDescription="@string/facebook"
                     android:src="@drawable/facebook_icon" />
-
                 <ImageView
                     android:id="@+id/twitterBtn"
                     android:layout_width="75dp"
@@ -91,12 +90,8 @@
                     android:layout_marginEnd="20dp"
                     android:contentDescription="@string/Snapchat"
                     android:src="@drawable/snapchat" />
-
-
             </RelativeLayout>
-
             <RelativeLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/bioContainer"
@@ -116,7 +111,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     />
 
                     <TextView
@@ -129,7 +124,6 @@
                         android:textSize="17sp"
                         android:textColor="@android:color/black"
                       />
-
             </RelativeLayout>
 
             <RelativeLayout
@@ -140,18 +134,17 @@
                 android:id="@+id/customcontainer"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded">
+                android:background="@drawable/rounded2">
 
                 <TextView
-                    android:layout_width="match_parent"
                     android:id="@+id/linkTitle"
+                    android:layout_width="378dp"
                     android:layout_height="50dp"
-                    android:text="@string/Link"
-                    android:textSize="20sp"
-                    android:paddingTop="10dp"
                     android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/Link"
                     android:textColor="@android:color/white"
-                    />
+                    android:textSize="20sp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:id="@+id/linkTEXT"

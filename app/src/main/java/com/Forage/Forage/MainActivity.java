@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity{
                     fragmentselect = new ProfileFragment();
                     break;
                 case R.id.search_profile:
-                    fragmentselect = new SearchFragment();
+                    fragmentselect = new MapFragment();
                     Log.d(TAG, "onNavigationItemSelected: Search" );
 
                     break;
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity{
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new ProfileFragment()).commit();
         }
         else {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new SearchFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new MapFragment()).commit();
         }
         SharedPreferences.Editor edit = load.edit();
         edit.putBoolean("setup",false);

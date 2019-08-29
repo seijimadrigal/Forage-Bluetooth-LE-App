@@ -50,5 +50,14 @@
     <string name="handle">Handle</string>
     <string name="username">Username</string>
     <string name="selfusername">You entered your username</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="edit">Edit</string>
+
+    <string name="edit_fb">Edit Facebook</string>
+    <string name="edit_bio">Edit Bio</string>
+    <string name="edit_snapchat">Edit Snapchat</string>
+    <string name="edit_twitter">Edit Twitter</string>
+    <string name="edit_insta">Edit Instagram</string>
+    <string name="edit_link">Edit Link</string>
 
 </resources>
