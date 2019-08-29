@@ -7,27 +7,30 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
 import com.facebook.Profile;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.mapbox.mapboxsdk.Mapbox;
 
 import java.util.HashMap;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import static com.Forage.Forage.Constants.FB_ID;
 import static com.Forage.Forage.Constants.FB_NAME;
 import static com.Forage.Forage.Constants.FB_PHOTO;
 import static com.Forage.Forage.Constants.VIEWS;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     private static String UserUUID = null;
     private String TAG = "Main Activity";
 
@@ -70,15 +73,15 @@ public class MainActivity extends AppCompatActivity{
     };
 
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bottomNavigationView = findViewById(R.id.navView);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navView);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         bottomNavigationView.getMenu().getItem(1).setChecked(true);
-
-
+        Mapbox.getInstance(this, "pk.eyJ1Ijoic291bGphejA1IiwiYSI6ImNqem5tenV6aTAyeG8zZG13bXg3eDAxOHAifQ.yN_-DnX1uCr5ZWQRS0nTVg");
         SharedPreferences load = PreferenceManager.getDefaultSharedPreferences(this);
         boolean setupBool = load.getBoolean("setup",true);
         if(setupBool){
@@ -89,7 +92,9 @@ public class MainActivity extends AppCompatActivity{
         }
         SharedPreferences.Editor edit = load.edit();
         edit.putBoolean("setup",false);
-        edit.apply();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+            edit.apply();
+        }
         UserUUID = load.getString("UserUUID",null);
         HashMap<String, Integer> num = new HashMap<>();
         num.put(VIEWS, 0);

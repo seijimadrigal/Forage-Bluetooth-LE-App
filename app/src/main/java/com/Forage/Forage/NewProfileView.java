@@ -3,14 +3,10 @@ package com.Forage.Forage;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.ViewUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,6 +21,10 @@ import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import static com.Forage.Forage.Constants.*;
 
 public class NewProfileView extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class NewProfileView extends AppCompatActivity {
     private ImageView fbBtn;
     private ImageView instaBtn, snapchatBtn;
     private ImageView twitterBtn;
-    private android.support.v7.widget.Toolbar toolbar;
+    private Toolbar toolbar;
     private RelativeLayout customLinkcontainer;
     private RelativeLayout bioContainer;
 

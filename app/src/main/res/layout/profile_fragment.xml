@@ -163,7 +163,6 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:background="@color/darksec"
                     android:textColor="@color/white"
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
@@ -196,7 +195,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textSize="20sp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:text="@string/facebookUsernameTitle"
                 />
             <Button
@@ -214,8 +213,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:padding="10dp"
-                android:textColor="@android:color/black"
-                android:background="@color/white"
+                android:textColor="@android:color/white"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="70dp" />
@@ -237,7 +235,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textSize="20sp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
 
                 android:text="@string/instagramTitle"
                 />
@@ -255,18 +253,17 @@
             <TextView
                 android:id="@+id/instagramUserName"
                 android:layout_width="match_parent"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="22dp"
                 android:layout_height="50dp"
-                android:background="@color/white"
                 android:layout_marginStart="75dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginTop="70dp" />
+                android:layout_marginTop="75dp" />
             <TextView
                 android:layout_width="60dp"
                 android:layout_marginStart="15dp"
+                android:textColor="@color/white"
                 android:layout_height="50dp"
-                android:background="@color/white"
                 android:layout_marginTop="70dp"
                 android:textSize="25sp"
                 android:textAlignment="center"
@@ -289,7 +286,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textSize="20sp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:text="@string/Snapchat"
                 />
             <Button
@@ -305,11 +302,9 @@
 
             <TextView
                 android:id="@+id/snapchatUsername"
-                android:textColor="@android:color/black"
-                android:hint=""
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/white"
                 android:textSize="22sp"
                 android:layout_marginStart="75dp"
                 android:layout_marginEnd="15dp"
@@ -318,7 +313,7 @@
                 android:layout_width="60dp"
                 android:layout_marginStart="15dp"
                 android:layout_height="50dp"
-                android:background="@color/white"
+                android:textColor="@color/white"
                 android:layout_marginTop="70dp"
                 android:textSize="25sp"
                 android:textAlignment="center"
@@ -341,7 +336,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
                 android:textSize="20sp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:text="@string/Twitter"
                 />
             <Button
@@ -356,11 +351,10 @@
                 />
             <TextView
                 android:id="@+id/twitterEdit"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/white"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="70dp"
                 android:textSize="22sp"
                 android:layout_marginStart="75dp"
                 android:layout_marginEnd="15dp"
@@ -369,7 +363,7 @@
                 android:layout_width="60dp"
                 android:layout_marginStart="15dp"
                 android:layout_height="50dp"
-                android:background="@color/white"
+                android:textColor="@color/white"
                 android:layout_marginTop="70dp"
                 android:textSize="25sp"
                 android:textAlignment="center"
@@ -391,7 +385,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textSize="20sp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:text="@string/Link"
                 />
             <Button
@@ -407,10 +401,9 @@
             <TextView
                 android:id="@+id/linkEditText"
                 android:layout_width="match_parent"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:layout_height="50dp"
                 android:padding="10dp"
-                android:background="@color/white"
                 android:layout_marginTop="70dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"

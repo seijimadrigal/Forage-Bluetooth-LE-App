@@ -8,14 +8,14 @@
     tools:context=".Settings"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarSettings"
         app:title="@string/action_settings"
         app:titleTextColor="@color/lightgrey"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 
 
