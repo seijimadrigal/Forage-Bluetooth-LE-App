@@ -2,8 +2,14 @@ package com.Forage.Forage;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
+
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -19,6 +25,8 @@ import com.facebook.login.widget.LoginButton;
 
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 import androidx.annotation.Nullable;
@@ -43,15 +51,46 @@ public class loginAuth extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        final String handle = sharedPreferences.getString("handle",null);
         if(Profile.getCurrentProfile() != null){
-            startMainActivity();
+
+            Log.d(TAG, "Handl: " + handle);
+            if(handle == null){
+                startEnterHandleActivity();
+
+            }
+            else {
+                if(handle.length() < 1){
+                    startEnterHandleActivity();
+                }
+                else {
+                    startMainActivity();
+                }
+            }
         }
         setContentView(R.layout.activity_login_auth);
         AppEventsLogger.activateApp(getApplication());
 
         LoginButton loginButton = findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList(EMAIL, PROFILE));
+
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.Forage.Forage",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
+
 
         callbackManager = CallbackManager.Factory.create();
         if (appToken != null && !appToken.isExpired()) {
@@ -66,13 +105,18 @@ public class loginAuth extends AppCompatActivity {
                 appToken = AccessToken.getCurrentAccessToken();
 
                 if (appToken != null && !appToken.isExpired()) {
-                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                    final String handle = sharedPreferences.getString("handle",null);
+                    Log.d(TAG, "Handl: " + handle);
                     if(handle == null){
                         startEnterHandleActivity();
+
                     }
                     else {
-                        startMainActivity();
+                        if(handle.length() < 1){
+                            startEnterHandleActivity();
+                        }
+                        else {
+                            startMainActivity();
+                        }
                     }
 
 

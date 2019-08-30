@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -81,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navView);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         bottomNavigationView.getMenu().getItem(1).setChecked(true);
+
+
+
         Mapbox.getInstance(this, "pk.eyJ1Ijoic291bGphejA1IiwiYSI6ImNqem5tenV6aTAyeG8zZG13bXg3eDAxOHAifQ.yN_-DnX1uCr5ZWQRS0nTVg");
         SharedPreferences load = PreferenceManager.getDefaultSharedPreferences(this);
         boolean setupBool = load.getBoolean("setup",true);
