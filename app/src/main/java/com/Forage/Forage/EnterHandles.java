@@ -52,27 +52,27 @@ public class EnterHandles extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             DocumentSnapshot doc = task.getResult();
-                            if(doc.exists()){
-                                errorText.setText(getString(R.string.username_exists));
-                                runPostDelay();
-                                usernameProg.setVisibility(View.INVISIBLE);
-                            }
-                            else{
+                            if(doc!=null){
+                                if(doc.exists()){
+                                    errorText.setText(getString(R.string.username_exists));
+                                    runPostDelay();
+                                    usernameProg.setVisibility(View.INVISIBLE);
+                                }
+                                else{
 
-                                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                SharedPreferences.Editor edit = sharedPreferences.edit();
-                                edit.putString("handle",handle.getText().toString());
-                                edit.apply();
-                                Intent startMainActivity = new Intent(EnterHandles.this, MainActivity.class);
-                                startActivity(startMainActivity);
-                                finish();
-                                usernameProg.setVisibility(View.INVISIBLE);
+                                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                    SharedPreferences.Editor edit = sharedPreferences.edit();
+                                    edit.putString("handle",handle.getText().toString());
+                                    edit.apply();
+                                    Intent startMainActivity = new Intent(EnterHandles.this, MainActivity.class);
+                                    startActivity(startMainActivity);
+                                    finish();
+                                    usernameProg.setVisibility(View.INVISIBLE);
 
+                                }
                             }
                         }
                     });
-
-
 
                 }
                 else if(handleLength < 6){

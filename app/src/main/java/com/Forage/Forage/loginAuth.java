@@ -86,9 +86,9 @@ public class loginAuth extends AppCompatActivity {
                 Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
         } catch (PackageManager.NameNotFoundException e) {
-
+            Log.d(TAG, "onCreate: " + e);
         } catch (NoSuchAlgorithmException e) {
-
+            Log.d(TAG, "onCreate: " + e);
         }
 
 
