@@ -1,7 +1,6 @@
-package com.Forage.Forage;
+package com.Forage.Forage.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -9,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.Forage.Forage.R;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.geometry.LatLng;

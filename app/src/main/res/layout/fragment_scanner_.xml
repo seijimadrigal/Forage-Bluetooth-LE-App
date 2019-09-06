@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient2"
-    tools:context=".scanner_Fragment">
+    tools:context=".fragments.scanner_Fragment">
 
 
     <Switch

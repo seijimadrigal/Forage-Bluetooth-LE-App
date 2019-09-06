@@ -1,4 +1,4 @@
-package com.Forage.Forage;
+package com.Forage.Forage.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.Forage.Forage.EditProfileActivity;
+import com.Forage.Forage.R;
+import com.Forage.Forage.Settings;
 import com.bumptech.glide.Glide;
 import com.facebook.Profile;
 import com.google.android.gms.ads.AdRequest;
@@ -27,6 +30,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
@@ -83,7 +88,7 @@ public class ProfileFragment extends Fragment {
         instagramBtn = profileView.findViewById(R.id.instaBtn);
         linkBtn = profileView.findViewById(R.id.linkBtn);
 
-        final Intent startEditActivity = new Intent(getActivity(),EditProfileActivity.class);
+        final Intent startEditActivity = new Intent(getActivity(), EditProfileActivity.class);
 
         bioBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +147,18 @@ public class ProfileFragment extends Fragment {
 
         userDetailsRef = collection.document(UUID);
         checkInfo();
+
+        CollectionReference locationCol = fb.collection("locations");
+        locationCol.whereEqualTo("number",12).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot doc : task.getResult()){
+                        Log.d(TAG, "TestData  " + doc.getId() + "  " + doc.getData());
+                    }
+                }
+            }
+        });
 
         if(handle != null){
             myHandleText.setText(handle);

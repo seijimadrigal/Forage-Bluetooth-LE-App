@@ -7,10 +7,12 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.Forage.Forage.fragments.MapFragment;
+import com.Forage.Forage.fragments.ProfileFragment;
+import com.Forage.Forage.fragments.scanner_Fragment;
 import com.facebook.Profile;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

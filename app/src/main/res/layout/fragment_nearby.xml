@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/darkbck"
+    android:layout_height="match_parent"
+    tools:context=".fragments.NearbyFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Melbourne"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/location_now"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto"
+            android:textSize="50sp"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/location_recycler_view"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/location_now"/>
+
+
+    </RelativeLayout>
+
+
+
+
+</FrameLayout>

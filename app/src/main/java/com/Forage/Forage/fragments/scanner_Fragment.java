@@ -1,4 +1,4 @@
-package com.Forage.Forage;
+package com.Forage.Forage.fragments;
 
 import static com.Forage.Forage.Constants.*;
 import android.Manifest;
@@ -35,6 +35,9 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.Forage.Forage.NewProfileView;
+import com.Forage.Forage.R;
+import com.Forage.Forage.bluetoothScanner;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.Profile;
